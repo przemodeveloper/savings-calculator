@@ -18,7 +18,23 @@ class App extends Component {
       {id: 2, name: "cereals", amount: 5, category: "food"},
       {id: 3, name: "game", amount: 10, category: "entertainment" },
       {id: 4, name: "bus ticket", amount: 1, category: "transportation"}
-    ]
+    ],
+    name: '',
+    category: '',
+    amount: null,
+    type: null,
+  }
+
+  handleChange = (event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState({
+      ...this.state,
+      [name]: value
+    })
+
+    console.log(this.state.name, this.state.category, this.state.amount, this.state.type);
   }
 
 
@@ -30,7 +46,7 @@ class App extends Component {
           <ExpenseList expenses={this.state.expenses}/>
         </div>
         <div>
-          <Form />
+          <Form change={this.handleChange}/>
         </div>
       </div>
     )

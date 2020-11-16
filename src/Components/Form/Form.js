@@ -1,27 +1,27 @@
 import React from 'react';
 import './Form.css';
 
-const Form = () => {
+const Form = (props) => {
     return(
         <form className="form">
             <div className="radio">
                 <label>
-                    <input type="radio" value="saving" name="type" />
+                    <input type="radio" value="saving" name="type" onChange={props.change}/>
                 Saving
                 </label>
                 <label>
-                    <input type="radio" value="expense" name="type" />
+                    <input type="radio" value="expense" name="type" onChange={props.change}/>
                 Expense
                 </label>
             </div>
             <div>
-                <input type="number" name="number"/>
+                <input type="number" name="amount" onChange={props.change}/>
             </div>
             <div>
-                <input type="text" name="text"/>
+                <input type="text" name="name" onChange={props.change}/>
             </div>
             <div>
-                <select name="categories">
+                <select name="category" onChange={props.change}>
                     <option value="sales">Sales</option>
                     <option value="work">Work</option>
                     <option value="rent">Rent</option>
