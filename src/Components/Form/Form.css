@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form div {
+    margin: 10px;
+}
+
+.radio {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

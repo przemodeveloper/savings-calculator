@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "shower gel",
+        "amount": 3,
+        "category": "hygiene"
+    },
+    {
+        "id": 2,
+        "name": "cereals",
+        "amount": 5,
+        "category": "food"
+    },
+    {
+        "id": 3,
+        "name": "game",
+        "amount": 10,
+        "category": "entertainment"
+    },
+    {
+        "id": 4,
+        "name": "bus ticket",
+        "amount": 1,
+        "category": "transportation"
+    }
+]

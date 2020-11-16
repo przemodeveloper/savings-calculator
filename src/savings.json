@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "car",
+        "amount": 2000,
+        "category": "sales"
+    },
+    {
+        "id": 2,
+        "name": "parts",
+        "amount": 340,
+        "category": "sales"
+    },
+    {
+        "id": 3,
+        "name": "flat",
+        "amount": 200,
+        "category": "rent"
+    },
+    {
+        "id": 4,
+        "name": "salary",
+        "amount": 500,
+        "category": "work"
+    }
+]
