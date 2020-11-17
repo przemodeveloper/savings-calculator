@@ -31,7 +31,7 @@ const Form = (props) => {
                     <option value="transportation">Transportation</option>
                 </select>
             </div>
-            <input type="submit" value="Add" />
+            <input type="submit" value="Add" onClick={props.click}/>
         </form>
     )
 }

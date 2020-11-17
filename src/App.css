@@ -11,6 +11,14 @@
   flex-direction: column;
 }
 
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
