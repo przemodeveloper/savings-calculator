@@ -3,13 +3,11 @@ import './Expense.css';
 
 const Expense = ({ name, category, amount }) => {
     return(
-        <div className="expense">
-            <p>{name}</p>
-            <hr/>
-            <p className="middle">{amount}</p>
-            <hr/>
-            <p>{category}</p>
-        </div>
+        <tr>
+            <td>{name}</td>
+            <td>{amount}</td>
+            <td>{category}</td>
+        </tr>
     );
 };
 

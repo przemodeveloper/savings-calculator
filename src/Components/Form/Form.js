@@ -22,6 +22,7 @@ const Form = (props) => {
             </div>
             <div>
                 <select name="category" onChange={props.change}>
+                    <option value="empty"></option>
                     <option value="sales">Sales</option>
                     <option value="work">Work</option>
                     <option value="rent">Rent</option>

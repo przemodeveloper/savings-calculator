@@ -4,6 +4,10 @@
   flex-direction: row;
 }
 
+.inner-container * {
+  margin: 15px;
+}
+
 .container {
   display: flex;
   justify-content: center;

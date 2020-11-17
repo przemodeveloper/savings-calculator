@@ -1,8 +1,29 @@
-.headers {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-    width: 250px;
-}
+#title {
+    text-align: center;
+    font-family: arial, sans-serif;
+  }
+
+  #savings {
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+  }
+
+  #savings td, #savings th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #savings tr:nth-child(even){background-color: #f2f2f2;}
+
+  #savings tr:hover {background-color: #ddd;}
+
+  #savings th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+  }

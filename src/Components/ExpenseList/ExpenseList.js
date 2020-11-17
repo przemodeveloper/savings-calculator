@@ -1,34 +1,31 @@
 import React, { Component } from 'react';
 import Expense from '../Expense/Expense';
 import './ExpenseList.css';
-// import expenses from '../../expenses.json';
 
 class ExpenseList extends Component {
 
-    // state = {
-    //     expenses: [
-    //         {id: 1, name: "shower gel", amount: 3, category: "hygiene"},
-    //         {id: 2, name: "cereals", amount: 5, category: "food"},
-    //         {id: 3, name: "game", amount: 10, category: "entertainment" },
-    //         {id: 4, name: "bus ticket", amount: 1, category: "transportation"}
-    //     ]
-    // }
-
     render() {
+
+        let headers = ['Name', 'Amount', 'Category'];
+
         return(
             <div>
-                <div className="headers">
-                    <p>Name</p>
-                    <p>Amount</p>
-                    <p>Category</p>
-                </div>
-                {this.props.expenses.map(expense => {
-                    return <Expense
-                        key={expense.id}
-                        name={expense.name}
-                        amount={expense.amount}
-                        category={expense.category}/>
-                })}
+                <h1 id="title">Expenses</h1>
+                <table id="expenses">
+                    <tbody>
+                        <tr>{headers.map((header, index) => {
+                            return <th key={index}>{header.toUpperCase()}</th>
+                        })}
+                        </tr>
+                        {this.props.expenses.map(expense => {
+                            return <Expense
+                                key={expense.id}
+                                name={expense.name}
+                                amount={expense.amount}
+                                category={expense.category}/>
+                        })}
+                    </tbody>
+                </table>
             </div>
         );
     }

@@ -26,34 +26,6 @@ class App extends Component {
     difference: null,
   }
 
-  componentDidMount() {
-    let sumOfSavings = 0;
-    let sumOfExpenses = 0;
-
-    for (let firstSum of this.state.savings) {
-      sumOfSavings += firstSum.amount;
-    }
-
-    for (let secondSum of this.state.expenses) {
-      sumOfExpenses += secondSum.amount;
-    }
-
-    this.setState({
-      difference: sumOfSavings - sumOfExpenses
-    })
-  }
-
-  handleChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-      ...this.state,
-      [name]: value
-    })
-
-  }
-
   calculateDifference = () => {
     let savingsSum = 0;
     let expensesSum = 0;
@@ -71,10 +43,29 @@ class App extends Component {
     })
   }
 
+  componentDidMount() {
+    this.calculateDifference();
+  }
+
+  handleChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      ...this.state,
+      [name]: value
+    })
+
+  }
+
   onAddEntry = (event) => {
     event.preventDefault();
 
-    if(this.state.name !== '' && this.state.category !== '' && this.state.amount !== null && this.state.type !== null) {
+    if(this.state.name !== '' &&
+      this.state.category !== 'empty' &&
+      this.state.amount !== null &&
+      this.state.type !== null &&
+      this.state.category !== '') {
 
     const entry = {
       id: this.state.expenses.length + this.state.savings.length + 1,

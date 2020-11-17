@@ -3,13 +3,11 @@ import './Saving.css';
 
 const Saving = ({ name, category, amount}) => {
     return(
-        <div className="saving">
-            <p>{name}</p>
-            <hr/>
-            <p>{amount}</p>
-            <hr/>
-            <p>{category}</p>
-        </div>
+        <tr>
+            <td>{name}</td>
+            <td>{amount}</td>
+            <td>{category}</td>
+        </tr>
     );
 };
 
