@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Saving from '../Saving/Saving';
 import './SavingList.css';
 
-class SavingList extends Component {
-
-    render() {
+const SavingList = (props) => {
 
         let headers = ['Name', 'Amount', 'Category'];
 
@@ -17,7 +15,7 @@ class SavingList extends Component {
                             return <th key={index}>{header.toUpperCase()}</th>
                         })}
                         </tr>
-                        {this.props.savings.map(saving => {
+                        {props.savings.map(saving => {
                             return <Saving
                                 key={saving.id}
                                 name={saving.name}
@@ -28,7 +26,6 @@ class SavingList extends Component {
                 </table>
             </div>
         );
-    }
 };
 
 export default SavingList;

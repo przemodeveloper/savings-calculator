@@ -15,7 +15,7 @@ const Form = (props) => {
                 </label>
             </div>
             <div>
-                <input type="number" name="amount" onChange={props.change}/>
+                <input type="number" name="amount" min="0" onChange={props.change}/>
             </div>
             <div>
                 <input type="text" name="name" onChange={props.change}/>
@@ -32,7 +32,7 @@ const Form = (props) => {
                     <option value="transportation">Transportation</option>
                 </select>
             </div>
-            <input type="submit" value="Add" onClick={props.click}/>
+            <input className="button" type="submit" value="Add" onClick={props.click}/>
         </form>
     )
 }

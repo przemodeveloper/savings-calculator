@@ -97,7 +97,10 @@ class App extends Component {
         <div>
           <Form change={this.handleChange} click={this.onAddEntry}/>
         </div>
-        <p className={this.state.difference > 0 ? "green" : "red" }>{this.state.difference}</p>
+        <div className="info">
+          <p className="paragraph">Your budget</p>
+          <p className={this.state.difference > 0 ? "default green" : "default red" }>{this.state.difference}</p>
+        </div>
       </div>
     )
   }
