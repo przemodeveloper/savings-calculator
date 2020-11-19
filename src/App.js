@@ -8,16 +8,16 @@ class App extends Component {
 
   state = {
     savings: [
-      {id: 1, name: "car", amount: 2000, category: "sales"},
-      {id: 2, name: "parts", amount: 340, category: "sales"},
-      {id: 3, name: "flat", amount: 200, category: "rent"},
-      {id: 4, name: "salary", amount: 500, category: "work"}
+      {id: 1, name: "car", amount: 2000, category: "sales", type: 'saving'},
+      {id: 2, name: "parts", amount: 340, category: "sales", type: 'saving'},
+      {id: 3, name: "flat", amount: 200, category: "rent", type: 'saving'},
+      {id: 4, name: "salary", amount: 500, category: "work", type: 'saving'}
   ],
     expenses: [
-      {id: 1, name: "shower gel", amount: 2000, category: "hygiene"},
-      {id: 2, name: "cereals", amount: 5, category: "food"},
-      {id: 3, name: "game", amount: 10, category: "entertainment" },
-      {id: 4, name: "bus ticket", amount: 1, category: "transportation"}
+      {id: 1, name: "shower gel", amount: 2000, category: "hygiene", type: 'expense'},
+      {id: 2, name: "cereals", amount: 5, category: "food", type: 'expense'},
+      {id: 3, name: "game", amount: 10, category: "entertainment", type: 'expense'},
+      {id: 4, name: "bus ticket", amount: 1, category: "transportation", type: 'expense'}
     ],
     name: '',
     category: '',
@@ -44,6 +44,20 @@ class App extends Component {
   }
 
   componentDidMount() {
+
+    const expenseObject = JSON.parse(localStorage.getItem('expenseEntries'));
+    const savingObject = JSON.parse(localStorage.getItem('savingEntries'));
+
+    console.log(expenseObject, savingObject)
+
+    if(expenseObject !== null) {
+      this.setState({expenses: expenseObject})
+    }
+
+    if(savingObject !== null) {
+      this.setState({savings: savingObject})
+    }
+
     this.calculateDifference();
   }
 
@@ -71,18 +85,26 @@ class App extends Component {
       id: this.state.expenses.length + this.state.savings.length + 1,
       name: this.state.name,
       category: this.state.category,
-      amount: this.state.amount
+      amount: this.state.amount,
+      type: this.state.type
     }
 
     if(this.state.type === 'saving') {
       this.setState({
         savings: this.state.savings.concat(entry)
       }, this.calculateDifference)
+      let entries = [...this.state.savings];
+      entries.push(entry);
+      localStorage.setItem('savingEntries', JSON.stringify(entries));
     } else {
       this.setState({
         expenses: this.state.expenses.concat(entry)
       }, this.calculateDifference)
+      let entries = [...this.state.expenses];
+      entries.push(entry);
+      localStorage.setItem('expenseEntries', JSON.stringify(entries));
     }
+
     }
   }
 

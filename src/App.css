@@ -42,6 +42,7 @@
   flex-direction: column;
   margin-top: 50px;
   border: 1px solid black;
+  margin-bottom: 15px;
 }
 
 .info p {
