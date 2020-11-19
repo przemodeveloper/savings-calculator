@@ -30,12 +30,27 @@ class App extends Component {
     let savingsSum = 0;
     let expensesSum = 0;
 
-    for (let firstSum of this.state.savings) {
-      savingsSum = savingsSum + Number(firstSum.amount);
+    const expenseObject = JSON.parse(localStorage.getItem('expenseEntries'));
+    const savingObject = JSON.parse(localStorage.getItem('savingEntries'));
+
+    if (savingObject != null) {
+      for (let firstSum of savingObject) {
+        savingsSum = savingsSum + Number(firstSum.amount);
+      }
+    } else {
+      for (let firstSum of this.state.savings) {
+        savingsSum = savingsSum + Number(firstSum.amount);
+      }
     }
 
-    for (let secondSum of this.state.expenses) {
-      expensesSum = expensesSum + Number(secondSum.amount);
+    if (expenseObject != null) {
+      for (let firstSum of expenseObject) {
+        expensesSum = expensesSum + Number(firstSum.amount);
+      }
+    } else {
+      for (let firstSum of this.state.expenses) {
+        expensesSum = expensesSum + Number(firstSum.amount);
+      }
     }
 
     this.setState({
@@ -70,6 +85,26 @@ class App extends Component {
       [name]: value
     })
 
+  }
+
+  onDeleteExpenseEntry = (index) => {
+    const array = [...this.state.expenses];
+    array.splice(index, 1)
+    localStorage.setItem('expenseEntries', JSON.stringify(array));
+    this.setState({
+      expenses: array
+    }, this.calculateDifference)
+
+
+  }
+
+  onDeleteSavingEntry = (index) => {
+    const array = [...this.state.savings];
+    array.splice(index, 1)
+    localStorage.setItem('savingEntries', JSON.stringify(array));
+    this.setState({
+      savings: array
+    }, this.calculateDifference)
   }
 
   onAddEntry = (event) => {
@@ -113,8 +148,8 @@ class App extends Component {
     return(
       <div className="container">
         <div className="inner-container">
-          <SavingList savings={this.state.savings} />
-          <ExpenseList expenses={this.state.expenses}/>
+          <SavingList savings={this.state.savings} deleteEntry={this.onDeleteSavingEntry}/>
+          <ExpenseList expenses={this.state.expenses} deleteEntry={this.onDeleteExpenseEntry}/>
         </div>
         <div>
           <Form change={this.handleChange} click={this.onAddEntry}/>

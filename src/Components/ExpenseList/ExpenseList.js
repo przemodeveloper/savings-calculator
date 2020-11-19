@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Expense from '../Expense/Expense';
 import './ExpenseList.css';
 
-class ExpenseList extends Component {
-
-    render() {
+const ExpenseList = ({ expenses, deleteEntry }) => {
 
         let headers = ['Name', 'Amount', 'Category'];
 
@@ -17,8 +15,9 @@ class ExpenseList extends Component {
                             return <th key={index}>{header.toUpperCase()}</th>
                         })}
                         </tr>
-                        {this.props.expenses.map(expense => {
+                        {expenses.map((expense, index) => {
                             return <Expense
+                                click={() => deleteEntry(index)}
                                 key={expense.id}
                                 name={expense.name}
                                 amount={expense.amount}
@@ -28,7 +27,6 @@ class ExpenseList extends Component {
                 </table>
             </div>
         );
-    }
 };
 
 export default ExpenseList;

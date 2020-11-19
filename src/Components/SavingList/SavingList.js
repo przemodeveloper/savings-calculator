@@ -2,7 +2,7 @@ import React from 'react';
 import Saving from '../Saving/Saving';
 import './SavingList.css';
 
-const SavingList = (props) => {
+const SavingList = ({ savings, deleteEntry }) => {
 
         let headers = ['Name', 'Amount', 'Category'];
 
@@ -15,8 +15,9 @@ const SavingList = (props) => {
                             return <th key={index}>{header.toUpperCase()}</th>
                         })}
                         </tr>
-                        {props.savings.map(saving => {
+                        {savings.map((saving, index) => {
                             return <Saving
+                                click={() => deleteEntry(index)}
                                 key={saving.id}
                                 name={saving.name}
                                 amount={saving.amount}

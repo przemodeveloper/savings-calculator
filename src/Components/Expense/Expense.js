@@ -1,9 +1,9 @@
 import React from 'react';
 import './Expense.css';
 
-const Expense = ({ name, category, amount }) => {
+const Expense = ({ name, category, amount, click }) => {
     return(
-        <tr>
+        <tr onClick={click}>
             <td>{name}</td>
             <td>{amount}</td>
             <td>{category}</td>

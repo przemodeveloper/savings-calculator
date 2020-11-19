@@ -1,9 +1,9 @@
 import React from 'react';
 import './Saving.css';
 
-const Saving = ({ name, category, amount}) => {
+const Saving = ({ name, category, amount, click }) => {
     return(
-        <tr>
+        <tr onClick={click}>
             <td>{name}</td>
             <td>{amount}</td>
             <td>{category}</td>
